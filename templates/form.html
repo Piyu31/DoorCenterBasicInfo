@@ -1,0 +1,148 @@
+{% extends "index.html" %}
+{% block formTemp %}
+<div class="container">
+   <div class="row">
+      <div class="col-lg-12 text-center m-4">
+         <h2><DATA>DC BASIC INFORMTION</DATA></h2>
+      </div>
+   </div>
+   <hr>
+   <form class="form-horizontal col-xs-12 col-lg-12 col-md-12 col-sm-12" method="POST" action="{{url_for('update_dcbasicinfo')}}" name="wform">
+      <div class="row sec1 mb-4">
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for="Dc#" class="text-dark">DC#</label>
+            <input type="number" class="form-control" id="dcnum" placeholder="Enter Dc number" name="dcnum" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for="Dc Name" class="text-dark">DC Name</label>
+            <input type="text" class="form-control" id="dcname" placeholder="Enter Dc Name" name="dcname" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for=" Dc Address" class="text-dark">DC Addrs</label>
+            <input type="text" class="form-control" id="dcaddr" placeholder="Enter Address" name="dcaddr" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for="Dc city" class="text-dark">DC City</label>
+            <input type="text" class="form-control" id="dccity" placeholder="Enter City" name="dccity" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for="DC State" class="text-dark">DC State</label>
+            <input type="text" class="form-control" id="dcstate" placeholder="Enter State"  name="dcstate" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="DC Code" class="text-dark">DC Code</label>
+            <input type="text" class="form-control" id="dczip" placeholder="Enter Zip Code"  name="dczip" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="DC Country" class="text-dark">DC Cntry</label>
+            <input type="text" class="form-control" id="dccountry" placeholder="Enter Country Name"  name="dccountry" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="DC Phone-number" class="text-dark">DC Phnum</label>
+            <input type="tel" class="form-control" id="dcphone" placeholder="Enter Phone-number"  name="dcphone" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="DC Email" class="text-dark">DC Email</label>
+            <input type="email" class="form-control" id="dcemail" placeholder="Enter Email"  name="dcemail" required>
+         </div>
+         <!--
+           <div class="form-group col-4">
+            <label for="email" class="text-light bg bg-info">Amarr District Manager</label>
+            <input type="text" class="form-control" id="email" placeholder="Mail Id"  name="email" required>
+         </div>
+      -->
+         
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="ADMFirst Name" class="text-dark">F Name</label>
+            <input type="text" class="form-control" id="admfirstname" placeholder="e.g.John"  name="admfirstname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="ADMLast Name" class="text-dark">L Name</label>
+            <input type="text" class="form-control" id="admlastname" placeholder="e.g.Smith"  name="admlastname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="ADMMobile Number" class="text-dark">Mobile</label>
+            <input type="tel" class="form-control" id="admphone" placeholder="e.g.999-888-7676 "  name="admphone" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="ADMEmail" class="text-dark">Email</label>
+            <input type="email" class="form-control" id="admemail" placeholder="e.g.johnS@gmail.com"  name="admemail" required>
+         </div> 
+          <!--
+         <div class="form-group col-4">
+          <label for="email" class="text-light bg bg-info">Sales Manager</label>
+            <input type="text" class="form-control" id="email" placeholder="Mail Id"  name="email" required>
+         </div>
+         -->
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="SMFirst Name" class="text-dark">F Name</label>
+            <input type="text" class="form-control" id="smfirstname" placeholder="e.g.Elsa"  name="smfirstname" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <label for="SMLast Name" class="text-dark">L Name</label>
+            <input type="text" class="form-control" id="smlastname" placeholder="e.g.Danes"  name="smlastname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="SMMobile Number" class="text-dark">Mobile</label>
+            <input type="tel" class="form-control" id="smphone" placeholder="e.g.777-656-2345"  name="smphone" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <label for="SMEmail" class="text-dark">Email</label>
+            <input type="email" class="form-control" id="smemail" placeholder="e.g.elsa@gmail.com"  name="smemail" required>
+         </div>
+
+         <div class="form-group col-4 float-right ">
+            <button type="Submit" class="btn btn-primary">Submit Record</button>
+         </div>
+      </div>
+   </form>
+ 
+   
+   <div class="row">
+      <div class="col-lg-12 text-center m-4">
+         <h2> DATA FROM DB</h2>
+      </div>
+      
+      {% for d in dcbasicinfolist %}
+      
+      <div class="col-sm-6 mb-3">
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title bg bg-dark text-light p-1">DC NUMBER : {{d["Dc_number"]}}</h5>
+               <table class="mb-4">
+                  <tr><td>ID : </td><td>{{d["_id"]}}</td></tr>
+                  <tr><td>DC NAME : </td><td>{{d["Dc_name"]}}</td></tr>
+                  <tr><td>DC ADDRESS : </td><td>{{d["Dc_address"]}}</td></tr>
+                  <tr><td>DC CITY : </td><td>{{d["Dc_city"]}}</td></tr>
+                  <tr><td>DC STATE : </td><td>{{d["Dc_state"]}}</td></tr>
+                  <tr><td>DC ZIP : </td><td>{{d["Dc_zip"]}}</td></tr>
+                  <tr><td>DC COUNTRY : </td><td>{{d["Dc_country"]}}</td></tr>
+                  <tr><td>DC PHONE : </td><td>{{d["Dc_phone"]}}</td></tr>
+                  <tr><td>DC EMAIL : </td><td>{{d["Dc_email"]}}</td></tr>
+                  <tr><td>AMARR DISTMANAGER FIRST NAME : </td><td>{{d["AmarrDistMgrFirstname"]}}</td></tr>
+                  <tr><td>AMARR DISTMANAGER LAST NAME : </td><td>{{d["AmarrDistMgrLastname"]}}</td></tr>
+                  <tr><td>AMARR DISTMANAGER PHONE-NUMBER: </td><td>{{d["AmarrDistMgrPhone"]}}</td></tr>
+                  <tr><td>AMARR DISTMANAGER EMAIL-ID : </td><td>{{d["AmarrDistMgrEmail"]}}</td></tr>
+                  <tr><td>SALES MANAGER FIRST NAME : </td><td>{{d["SmFirstname"]}}</td></tr>
+                  <tr><td>SALES MANAGER LAST NAME : </td><td>{{d["SmLastname"]}}</td></tr>
+                  <tr><td>SALES MANAGER PHONE-NUMBER : </td><td>{{d["SmPhone"]}}</td></tr>
+                  <tr><td>SALES MANAGER EMAIL-ID : </td><td>{{d["SmEmail"]}}</td></tr>
+                  
+               </table>
+               <div class="row">
+                  <form method="POST" action="edit/{{d['_id']}}" class="col-lg-3 col-md-3">
+                     <div class="form-group">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      {% endfor %}
+   
+   </div>
+
+</div>
+{% endblock %}
